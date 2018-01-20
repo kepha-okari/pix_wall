@@ -78,4 +78,4 @@ DATABASES = {
 
 ### License
 
-MIT (c) 2017 **[Kepha Okari](https://github.com/kepha-okari)**
+**[MIT](./LICENSE)** (c) 2017 **[Kepha Okari](https://github.com/kepha-okari)**
