@@ -1,4 +1,4 @@
-#### PixWall
+# PixWall
 
 
 ## By **[Kepha Okari](https://github.com/kepha-okari)**
