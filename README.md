@@ -1,4 +1,4 @@
-#PixWall
+####PixWall
 
 
 ## By **[Kepha Okari](https://github.com/kepha-okari)**
@@ -47,7 +47,7 @@ DEBUG=True
 
 ```
 psql
-CREATE DATABASE unplsash
+CREATE DATABASE pixwall
 ```
 9. Change the database informatioin in `car/settings.py`
 ```
