@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
+from .models import Images
 import datetime as dt
 
 # # Create your views here.
@@ -9,25 +10,8 @@ import datetime as dt
 def welcome(request):
     return render(request, 'welcome.html')
 
-def show_date(request):
-    date = dt.date.today()
+def all_images(request):
 
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>{day} {date.day}-{date.month}-{date.year}</h1>
-                <p
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
-def convert_dates(dates):
-    #funticon that gets the weekday number for the dates
-    day_number = dt.date.weekday(dates)
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+    images = Images.get_images()
 
-    #rReturning the actual date of the weekday
-    day = days[day_number]
-    return day
+    return render(request, 'all_images.html', {"images": images})

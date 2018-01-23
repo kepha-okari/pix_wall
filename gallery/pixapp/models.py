@@ -38,7 +38,7 @@ class Images(models.Model):
         self.delete()
 
     @classmethod
-    def get_image(cls):
+    def get_images(cls):
         '''
         Method that gets all image posts from the database
         Returns:
