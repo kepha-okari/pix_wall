@@ -9,7 +9,7 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
-class tag(models.Model):
+class Tag(models.Model):
     """ class to indicate the category of the image"""
     name = models.CharField(max_length=30)
 
@@ -22,7 +22,7 @@ class Images(models.Model):
     name = models.CharField(max_length=30)
     descripton = models.TextField()
     location_taken = models.ForeignKey(Location)
-    category = models.ManyToManyField(tag)
+    category = models.ManyToManyField(Tag)
     time_posted = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
