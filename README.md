@@ -54,7 +54,7 @@ CREATE DATABASE pixwall
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'unsplash',
+        'NAME': 'pixwall',
         'USER': *POSTGRES_USERNAME*,
         'PASSWORD': *POSTGRES_USERNAME*,
     }
