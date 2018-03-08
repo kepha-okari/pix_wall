@@ -3,26 +3,36 @@
   <div class="container">
     <section class="no-touch">
       <p class="text-center" style="font-size:1.3em">Search Results: <span>{{photos|length}}</span> found matching your search crireria</p>
-      <div class="image-results col-md-4 col-md-offset-4">
+
         {% if photos %}
         {% for photo_item in photos%}
-        <a href="{% url 'singlePhoto' photo_item.id %}%}">
-        <div class="box">
-          <div class="boxInner">
-            <img src="{{photo_item.photo.url}}"  class="img-responsive">
-            <div class="titleBox" style="font-family: 'Cabin Sketch', cursive">{{photo_item.name|upper}}</div>
-          </div>
-        </div>
-        </a>
+
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+              <a href="{% url 'singlePhoto' photo_item.id %}">
+                <img src="{{photo.photo.url}}"  class="img-responsive" width="100%" height="100%" alt="">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                     <h3 class="uk-card-title">{{photo_item.name|upper}}</h3>
+                     <hr class="uk-divider-icon">
+                     <img src="{{photo_item.photo.url}}"  class="img-responsive" width="100%" height="100%">
+               </div>
+             </a>
+           </div>
+
+
+
         {% endfor %}
         {% else %}
-        <div class="wrap">
-          <h1 class="text-center">No Photos found with that search criteria </h1>
-        </div>
+          <div>
+           <div class="uk-card uk-card-primary uk-card-body">
+           <hr class="uk-divider-icon">
+             <h2 class="uk-card-title">No Photos found with that search criteria </h2>
+            <hr class="uk-divider-icon">
+
+       </div>
         {% endif %}
       </div>
 
     </section>
-  </div>
+
 
 {% endblock %}

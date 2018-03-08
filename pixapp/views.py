@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-from .models import Images
+from .models import Images,Tag
 import datetime as dt
 
 # # Create your views here.
-# def welcome(request):
+# def welcome(request):/search/?photos=sports
 #     return HttpResponse('Welcome to PixWall')
 
 def welcome(request):
@@ -24,6 +24,7 @@ def search_results(request):
     if 'photos' in request.GET and request.GET['photos']:
         search_term = request.GET.get('photos')
         searched_photo = Images.search_by_title(search_term)
+        photos = Images.objects.filter(name = searched_photo).all()
         message = f"{search_term}"
         return render(request, 'search_image.html', {"message":message, "photos":searched_photo})
     else:

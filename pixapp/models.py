@@ -16,13 +16,20 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def search_by_tag(cls,search_term):
+        tags = cls.objects.filter(name__icontains= search_term).all()
+        return tags
+
+
 class Images(models.Model):
     """class to hod the photos"""
     photo = models.ImageField(upload_to = 'Images/', null = True)
     name = models.CharField(max_length=30)
     descripton = models.TextField()
     location_taken = models.ForeignKey(Location)
-    category = models.ManyToManyField(Tag)
+    # category = models.ManyToManyField(Tag)
+    tag = models .ForeignKey(Tag, on_delete = models.CASCADE, blank = True, null = True)
     time_posted = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
